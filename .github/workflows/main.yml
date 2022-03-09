@@ -30,7 +30,5 @@ jobs:
           npx lerna bootstrap
 
       - name: Run linters
-        uses: wearerequired/lint-action@v1
-        with:
-          eslint: true
-          prettier: true
+        run:
+          lerna run lint
