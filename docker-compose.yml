@@ -1,0 +1,10 @@
+services:
+  db:
+    image: mysql:latest
+    env_file: .env
+  adminer:
+    image: adminer:latest
+    environment:
+      - ADMINER_DESIGN="hydra"
+    ports:
+      - 8080:8080
