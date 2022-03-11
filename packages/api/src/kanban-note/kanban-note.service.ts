@@ -13,7 +13,7 @@ export class KanbanNoteService {
   ) {}
 
   create(createKanbanNoteDto: CreateKanbanNoteDto) {
-    return 'This action adds a new kanbanNote'
+    return this.kanbanNoteRepository.create(createKanbanNoteDto)
   }
 
   findAll() {
@@ -25,7 +25,7 @@ export class KanbanNoteService {
   }
 
   update(id: number, updateKanbanNoteDto: UpdateKanbanNoteDto) {
-    return `This action updates a #${id} kanbanNote`
+    return this.kanbanNoteRepository.update(id, updateKanbanNoteDto)
   }
 
   async remove(id: number): Promise<void> {

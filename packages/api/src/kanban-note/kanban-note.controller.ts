@@ -1,7 +1,15 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
-import { KanbanNoteService } from './kanban-note.service';
-import { CreateKanbanNoteDto } from './dto/create-kanban-note.dto';
-import { UpdateKanbanNoteDto } from './dto/update-kanban-note.dto';
+import {
+  Controller,
+  Get,
+  Post,
+  Body,
+  Patch,
+  Param,
+  Delete,
+} from '@nestjs/common'
+import { KanbanNoteService } from './kanban-note.service'
+import { CreateKanbanNoteDto } from './dto/create-kanban-note.dto'
+import { UpdateKanbanNoteDto } from './dto/update-kanban-note.dto'
 
 @Controller('kanban-note')
 export class KanbanNoteController {
@@ -9,26 +17,29 @@ export class KanbanNoteController {
 
   @Post()
   create(@Body() createKanbanNoteDto: CreateKanbanNoteDto) {
-    return this.kanbanNoteService.create(createKanbanNoteDto);
+    return this.kanbanNoteService.create(createKanbanNoteDto)
   }
 
   @Get()
   findAll() {
-    return this.kanbanNoteService.findAll();
+    return this.kanbanNoteService.findAll()
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.kanbanNoteService.findOne(+id);
+  findOne(@Param('id') id: number) {
+    return this.kanbanNoteService.findOne(+id)
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateKanbanNoteDto: UpdateKanbanNoteDto) {
-    return this.kanbanNoteService.update(+id, updateKanbanNoteDto);
+  update(
+    @Param('id') id: number,
+    @Body() updateKanbanNoteDto: UpdateKanbanNoteDto,
+  ) {
+    return this.kanbanNoteService.update(+id, updateKanbanNoteDto)
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.kanbanNoteService.remove(+id);
+  remove(@Param('id') id: number) {
+    return this.kanbanNoteService.remove(+id)
   }
 }

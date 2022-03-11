@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger'
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
 import { KanbanNote } from '../../kanban-note/entities/kanban-note.entity'
 
@@ -6,6 +7,10 @@ export class KanbanColumn {
   @PrimaryGeneratedColumn()
   id: number
 
+  @ApiProperty({
+    example: 'Lorem ipsum',
+    description: 'The name of the column',
+  })
   @Column()
   name: string
 

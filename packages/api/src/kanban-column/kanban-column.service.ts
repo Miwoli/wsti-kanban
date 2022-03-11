@@ -13,7 +13,7 @@ export class KanbanColumnService {
   ) {}
 
   create(createKanbanColumnDto: CreateKanbanColumnDto) {
-    return 'This action adds a new kanbanColumn'
+    return this.kanbanColumnRepository.create(createKanbanColumnDto)
   }
 
   findAll(): Promise<KanbanColumn[]> {
@@ -25,7 +25,7 @@ export class KanbanColumnService {
   }
 
   update(id: number, updateKanbanColumnDto: UpdateKanbanColumnDto) {
-    return `This action updates a #${id} kanbanColumn`
+    return this.kanbanColumnRepository.update(id, updateKanbanColumnDto)
   }
 
   async remove(id: number): Promise<void> {

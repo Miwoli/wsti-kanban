@@ -1,1 +1,3 @@
-export class CreateKanbanColumnDto {}
+export class CreateKanbanColumnDto {
+  readonly name: string
+}

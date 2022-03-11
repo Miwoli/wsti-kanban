@@ -1,4 +1,6 @@
-import { PartialType } from '@nestjs/mapped-types';
-import { CreateKanbanColumnDto } from './create-kanban-column.dto';
+import { PartialType } from '@nestjs/mapped-types'
+import { CreateKanbanColumnDto } from './create-kanban-column.dto'
 
-export class UpdateKanbanColumnDto extends PartialType(CreateKanbanColumnDto) {}
+export class UpdateKanbanColumnDto extends PartialType(CreateKanbanColumnDto) {
+  readonly name: string
+}
