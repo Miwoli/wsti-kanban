@@ -16,4 +16,6 @@ MYSQL_USER="dolor"
 MYSQL_PASSWORD="sit"
 ```
 
-### App
+### Api
+
+1. In `api/src/app.module.ts` type in the proper DB credentials. Should come from env, but for now screw it, as it's a small app created only to pass an uni course.

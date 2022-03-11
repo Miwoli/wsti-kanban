@@ -8,7 +8,7 @@ import { KanbanNoteModule } from './kanban-note/kanban-note.module'
     TypeOrmModule.forRoot({
       // USER & PASSWORD ARE FOR LOCAL, DEV PURPOSE ONLY. THEY SHOULD BE STORED In .ENV/EXTERNAL FILE/ENVS!!!
       type: 'mysql',
-      host: 'host.docker.internal',
+      host: 'localhost',
       port: 3306,
       username: 'user',
       password: 'pass',
