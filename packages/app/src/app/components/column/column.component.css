@@ -1,0 +1,13 @@
+mat-card {
+  width: 300px;
+  margin: 10px;
+}
+
+mat-card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+::ng-deep .mat-card-header-text {
+  align-self: flex-end;
+}

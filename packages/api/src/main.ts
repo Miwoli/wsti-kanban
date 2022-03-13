@@ -4,6 +4,7 @@ import { AppModule } from './app.module'
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule)
+  app.enableCors()
   const config = new DocumentBuilder()
     .setTitle('WSTI Kanban API')
     .setDescription('Endpoints for the WSTI Kanban project')

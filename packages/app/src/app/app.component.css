@@ -1,4 +1,11 @@
 mat-toolbar {
   display: flex;
   justify-content: space-between;
+  width: 100%;
+}
+
+main {
+  display: flex;
+  overflow: auto;
+  min-height: calc(100% - 64px);
 }

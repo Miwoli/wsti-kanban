@@ -13,7 +13,7 @@ export class KanbanColumnService {
   ) {}
 
   create(createKanbanColumnDto: CreateKanbanColumnDto) {
-    return this.kanbanColumnRepository.create(createKanbanColumnDto)
+    return this.kanbanColumnRepository.save(createKanbanColumnDto)
   }
 
   findAll(): Promise<KanbanColumn[]> {

@@ -14,15 +14,27 @@ import { MatInputModule } from '@angular/material/input'
 import { MatIconModule } from '@angular/material/icon'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatRippleModule } from '@angular/material/core'
-import { MatButtonModule } from '@angular/material/button';
-import { ColumnDialogComponent } from './components/column-dialog/column-dialog.component';
+import { MatButtonModule } from '@angular/material/button'
+import { ColumnDialogComponent } from './components/column-dialog/column-dialog.component'
 import { NoteDialogComponent } from './components/note-dialog/note-dialog.component'
+import { FormsModule } from '@angular/forms'
+import { ColumnService } from './services/column.service'
+import { NoteService } from './services/note.service'
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
-  declarations: [AppComponent, ColumnComponent, NoteComponent, ColumnDialogComponent, NoteDialogComponent],
+  declarations: [
+    AppComponent,
+    ColumnComponent,
+    NoteComponent,
+    ColumnDialogComponent,
+    NoteDialogComponent,
+  ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
     DragDropModule,
     MatToolbarModule,
     MatCardModule,
@@ -34,7 +46,7 @@ import { NoteDialogComponent } from './components/note-dialog/note-dialog.compon
     MatRippleModule,
     MatButtonModule,
   ],
-  providers: [],
+  providers: [ColumnService, NoteService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

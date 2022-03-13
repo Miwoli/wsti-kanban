@@ -1,1 +1,13 @@
-<p>column works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      {{ column.name }}
+    </mat-card-title>
+    <button mat-icon-button (click)="onRemove()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-card-content cdkDropList *ngFor="let note of column.notes">
+    <app-note></app-note>
+  </mat-card-content>
+</mat-card>

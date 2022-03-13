@@ -1,6 +1,11 @@
 <mat-toolbar>
   <span>WSTI Kanban App</span>
-  <button mat-icon-button>
+  <button mat-icon-button (click)="onNewColumn()">
     <mat-icon>post_add</mat-icon>
   </button>
 </mat-toolbar>
+<main>
+  <ng-container *ngFor="let column of columns">
+    <app-column [column]="column" (removed)="onColumnRemoved()"></app-column>
+  </ng-container>
+</main>
