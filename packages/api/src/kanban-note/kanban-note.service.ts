@@ -12,8 +12,8 @@ export class KanbanNoteService {
     private kanbanNoteRepository: Repository<KanbanNote>,
   ) {}
 
-  create(createKanbanNoteDto: CreateKanbanNoteDto) {
-    return this.kanbanNoteRepository.create(createKanbanNoteDto)
+  save(createKanbanNoteDto: CreateKanbanNoteDto) {
+    return this.kanbanNoteRepository.save(createKanbanNoteDto)
   }
 
   findAll() {

@@ -4,8 +4,10 @@
     <mat-icon>post_add</mat-icon>
   </button>
 </mat-toolbar>
-<main>
-  <ng-container *ngFor="let column of columns">
-    <app-column [column]="column" (removed)="onColumnRemoved()"></app-column>
-  </ng-container>
+<main cdkDropListGroup>
+  <app-column
+    *ngFor="let column of columns"
+    [column]="column"
+    (removed)="onColumnRemoved()"
+  ></app-column>
 </main>

@@ -21,20 +21,22 @@ export class ColumnDialogComponent {
     this.dialogRef.close()
   }
   onSave(): void {
-    this._columnService.createColumn({ name: this.columnName }).subscribe({
-      next: () => {
-        this._snackBar.open(`Column ${this.columnName} created!`, undefined, {
-          duration: 3000,
-          panelClass: 'mat-snack-bar-success',
-        })
-        this.dialogRef.close()
-      },
-      error: (err: HttpErrorResponse) => {
-        this._snackBar.open(`Error: ${err.message}`, undefined, {
-          duration: 3000,
-          panelClass: 'mat-snack-bar-error',
-        })
-      },
-    })
+    this._columnService
+      .createColumn({ name: this.columnName, notes: [] })
+      .subscribe({
+        next: () => {
+          this._snackBar.open(`Column ${this.columnName} created!`, undefined, {
+            duration: 3000,
+            panelClass: 'mat-snack-bar-success',
+          })
+          this.dialogRef.close()
+        },
+        error: (err: HttpErrorResponse) => {
+          this._snackBar.open(`Error: ${err.message}`, undefined, {
+            duration: 3000,
+            panelClass: 'mat-snack-bar-error',
+          })
+        },
+      })
   }
 }

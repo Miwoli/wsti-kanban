@@ -8,6 +8,10 @@ mat-card-header {
   justify-content: space-between;
 }
 
+mat-card-content {
+  min-height: 50px;
+}
+
 ::ng-deep .mat-card-header-text {
   align-self: flex-end;
 }

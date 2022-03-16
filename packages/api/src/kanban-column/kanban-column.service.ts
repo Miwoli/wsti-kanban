@@ -12,7 +12,7 @@ export class KanbanColumnService {
     private kanbanColumnRepository: Repository<KanbanColumn>,
   ) {}
 
-  create(createKanbanColumnDto: CreateKanbanColumnDto) {
+  save(createKanbanColumnDto: CreateKanbanColumnDto) {
     return this.kanbanColumnRepository.save(createKanbanColumnDto)
   }
 

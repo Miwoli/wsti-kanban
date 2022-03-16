@@ -1,5 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm'
+import { KanbanColumn } from 'src/kanban-column/entities/kanban-column.entity'
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm'
 
 @Entity()
 export class KanbanNote {
@@ -24,6 +25,8 @@ export class KanbanNote {
     example: 1,
     description: 'ID of the column the note belongs to',
   })
-  @Column()
-  kanbanColumn: number
+  @ManyToOne(() => KanbanColumn, (column) => column.notes, {
+    onDelete: 'CASCADE',
+  })
+  kanbanColumn: KanbanColumn
 }

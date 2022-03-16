@@ -17,7 +17,7 @@ export class KanbanColumnController {
 
   @Post()
   create(@Body() createKanbanColumnDto: CreateKanbanColumnDto) {
-    return this.kanbanColumnService.create(createKanbanColumnDto)
+    return this.kanbanColumnService.save(createKanbanColumnDto)
   }
 
   @Get()

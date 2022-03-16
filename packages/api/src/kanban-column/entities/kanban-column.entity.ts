@@ -1,5 +1,11 @@
 import { ApiProperty } from '@nestjs/swagger'
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm'
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm'
 import { KanbanNote } from '../../kanban-note/entities/kanban-note.entity'
 
 @Entity()
@@ -14,8 +20,10 @@ export class KanbanColumn {
   @Column()
   name: string
 
-  @OneToMany((type) => KanbanNote, (note) => note.kanbanColumn, {
-    cascade: ['remove'],
+  @OneToMany((type) => KanbanNote, (notes) => notes.kanbanColumn, {
+    // cascade: ['remove', 'update'],
+    eager: true,
   })
+  @JoinColumn({ name: 'kanbanColumn' })
   notes: KanbanNote[]
 }
