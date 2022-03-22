@@ -1,5 +1,11 @@
+import { ApiProperty } from '@nestjs/swagger'
+import { KanbanColumn } from 'src/kanban-column/entities/kanban-column.entity'
+
 export class CreateKanbanNoteDto {
+  @ApiProperty()
   readonly title: string
+  @ApiProperty()
   readonly description?: string
-  readonly kanbanColumn: number
+  @ApiProperty()
+  readonly kanbanColumn: KanbanColumn
 }

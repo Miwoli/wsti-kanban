@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>{{ data?.id ? 'Edit' : 'New' }} column</h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="outline">
+    <mat-label>Column name</mat-label>
+    <input matInput [(ngModel)]="columnName" />
+  </mat-form-field>
+</div>
+<div mat-dialog-actions class="dialog-actions">
+  <button mat-button (click)="onCancel()">Cancel</button>
+  <button mat-button (click)="onSave()">Save</button>
+</div>

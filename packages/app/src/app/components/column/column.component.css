@@ -1,0 +1,22 @@
+mat-card {
+  width: 300px;
+  margin: 10px;
+  background-color: #424242;
+}
+
+mat-card-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+mat-card-content {
+  min-height: 50px;
+}
+
+::ng-deep .mat-card-header-text {
+  align-self: flex-end;
+}
+
+::ng-deep app-note .mat-card {
+  margin-top: 16px;
+}
