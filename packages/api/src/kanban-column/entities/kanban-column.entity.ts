@@ -10,6 +10,7 @@ import { KanbanNote } from '../../kanban-note/entities/kanban-note.entity'
 
 @Entity()
 export class KanbanColumn {
+  @ApiProperty()
   @PrimaryGeneratedColumn()
   id: number
 
@@ -20,8 +21,8 @@ export class KanbanColumn {
   @Column()
   name: string
 
-  @OneToMany((type) => KanbanNote, (notes) => notes.kanbanColumn, {
-    // cascade: ['remove', 'update'],
+  @OneToMany(() => KanbanNote, (notes) => notes.kanbanColumn, {
+    cascade: ['remove'],
     eager: true,
   })
   @JoinColumn({ name: 'kanbanColumn' })

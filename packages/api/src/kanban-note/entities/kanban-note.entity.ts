@@ -25,8 +25,9 @@ export class KanbanNote {
     example: 1,
     description: 'ID of the column the note belongs to',
   })
-  @ManyToOne(() => KanbanColumn, (column) => column.notes, {
+  @ManyToOne(() => KanbanColumn, (column) => column.id, {
     onDelete: 'CASCADE',
+    onUpdate: 'CASCADE',
   })
   kanbanColumn: KanbanColumn
 }

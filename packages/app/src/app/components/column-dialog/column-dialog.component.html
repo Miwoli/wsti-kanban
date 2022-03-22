@@ -1,7 +1,7 @@
-<h1 mat-dialog-title>New column</h1>
+<h1 mat-dialog-title>{{ data?.id ? 'Edit' : 'New' }} column</h1>
 <div mat-dialog-content>
   <mat-form-field appearance="outline">
-    <mat-label>New column name</mat-label>
+    <mat-label>Column name</mat-label>
     <input matInput [(ngModel)]="columnName" />
   </mat-form-field>
 </div>

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { InjectRepository } from '@nestjs/typeorm'
-import { Repository } from 'typeorm'
+import { Repository, UpdateResult } from 'typeorm'
 import { CreateKanbanNoteDto } from './dto/create-kanban-note.dto'
 import { UpdateKanbanNoteDto } from './dto/update-kanban-note.dto'
 import { KanbanNote } from './entities/kanban-note.entity'
@@ -16,7 +16,7 @@ export class KanbanNoteService {
     return this.kanbanNoteRepository.save(createKanbanNoteDto)
   }
 
-  findAll() {
+  findAll(): Promise<KanbanNote[]> {
     return this.kanbanNoteRepository.find()
   }
 
@@ -24,7 +24,10 @@ export class KanbanNoteService {
     return this.kanbanNoteRepository.findOne(id)
   }
 
-  update(id: number, updateKanbanNoteDto: UpdateKanbanNoteDto) {
+  update(
+    id: number,
+    updateKanbanNoteDto: UpdateKanbanNoteDto,
+  ): Promise<UpdateResult> {
     return this.kanbanNoteRepository.update(id, updateKanbanNoteDto)
   }
 

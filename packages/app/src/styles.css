@@ -19,3 +19,7 @@ body {
   background-color: rgb(0, 168, 50);
   color: white;
 }
+
+.mat-card {
+  background-color: #636363;
+}

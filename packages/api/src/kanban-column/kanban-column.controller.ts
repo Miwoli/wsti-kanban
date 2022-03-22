@@ -10,6 +10,8 @@ import {
 import { KanbanColumnService } from './kanban-column.service'
 import { CreateKanbanColumnDto } from './dto/create-kanban-column.dto'
 import { UpdateKanbanColumnDto } from './dto/update-kanban-column.dto'
+import { KanbanColumn } from './entities/kanban-column.entity'
+import { ApiResponse } from '@nestjs/swagger'
 
 @Controller('kanban-column')
 export class KanbanColumnController {
@@ -21,7 +23,8 @@ export class KanbanColumnController {
   }
 
   @Get()
-  findAll() {
+  @ApiResponse({ type: [KanbanColumn] })
+  findAll(): Promise<KanbanColumn[]> {
     return this.kanbanColumnService.findAll()
   }
 

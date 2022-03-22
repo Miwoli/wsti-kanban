@@ -11,6 +11,7 @@ import { Column } from 'src/app/model/column'
 import { Note } from 'src/app/model/note'
 import { ColumnService } from 'src/app/services/column.service'
 import { NoteService } from 'src/app/services/note.service'
+import { ColumnDialogComponent } from '../column-dialog/column-dialog.component'
 import { NoteDialogComponent } from '../note-dialog/note-dialog.component'
 
 @Component({
@@ -47,6 +48,19 @@ export class ColumnComponent {
           duration: 3000,
           panelClass: 'mat-snack-bar-error',
         })
+      },
+    })
+  }
+
+  onEdit(column: Column) {
+    const dialogRef = this.dialog.open(ColumnDialogComponent, {
+      width: '250px',
+      data: column,
+    })
+
+    dialogRef.afterClosed().subscribe({
+      next: (result: string) => {
+        this.column.name = result
       },
     })
   }
@@ -95,6 +109,10 @@ export class ColumnComponent {
         },
       })
     }
+  }
+
+  onNoteRemove(): void {
+    this.getNotes()
   }
 
   private getNotes(): void {

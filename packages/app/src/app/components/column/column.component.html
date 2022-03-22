@@ -7,6 +7,9 @@
       <button mat-icon-button (click)="onNewNote(column.id)">
         <mat-icon>add</mat-icon>
       </button>
+      <button mat-icon-button (click)="onEdit(column)">
+        <mat-icon>edit</mat-icon>
+      </button>
       <button mat-icon-button (click)="onRemove()">
         <mat-icon>delete</mat-icon>
       </button>
@@ -17,6 +20,10 @@
     [cdkDropListData]="column.notes"
     (cdkDropListDropped)="onDrop($event, column.id)"
   >
-    <app-note *ngFor="let note of column.notes" [note]="note"></app-note>
+    <app-note
+      *ngFor="let note of column.notes"
+      [note]="note"
+      (removed)="onNoteRemove()"
+    ></app-note>
   </mat-card-content>
 </mat-card>

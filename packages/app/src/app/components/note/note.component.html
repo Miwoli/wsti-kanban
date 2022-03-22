@@ -7,4 +7,12 @@
   <mat-card-content>
     <p>{{ note.description }}</p>
   </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-icon-button (click)="onEdit()">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button (click)="onRemove()">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-card-actions>
 </mat-card>

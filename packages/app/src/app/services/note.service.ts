@@ -27,4 +27,8 @@ export class NoteService {
   public updateNote(note: Note): Observable<void> {
     return this.http.patch<void>(`${this.apiUrl}/${note.id}`, note)
   }
+
+  public removeNote(note: Note): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${note.id}`)
+  }
 }

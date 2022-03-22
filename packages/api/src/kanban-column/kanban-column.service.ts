@@ -25,7 +25,12 @@ export class KanbanColumnService {
   }
 
   update(id: number, updateKanbanColumnDto: UpdateKanbanColumnDto) {
-    return this.kanbanColumnRepository.update(id, updateKanbanColumnDto)
+    return this.kanbanColumnRepository
+      .createQueryBuilder()
+      .update(KanbanColumn)
+      .set({ name: updateKanbanColumnDto.name })
+      .where('id = :id', { id: id })
+      .execute()
   }
 
   async remove(id: number): Promise<void> {
