@@ -2,6 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http'
 import { Component, Inject } from '@angular/core'
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog'
 import { MatSnackBar } from '@angular/material/snack-bar'
+import { Note } from 'src/app/model/note'
 import { NoteService } from 'src/app/services/note.service'
 
 @Component({
@@ -36,6 +37,7 @@ export class NoteDialogComponent {
   }
 
   onSave(): void {
+
     this.data.id ? this.updateNote() : this.newNote()
   }
 
@@ -77,12 +79,12 @@ export class NoteDialogComponent {
         kanbanColumn: this.data.kanbanColumn,
       })
       .subscribe({
-        next: () => {
+        next: (note: Note) => {
           this._snackBar.open(`Note ${this.title} created!`, undefined, {
             duration: 3000,
             panelClass: 'mat-snack-bar-success',
           })
-          this.dialogRef.close()
+          this.dialogRef.close(note)
         },
         error: (err: HttpErrorResponse) => {
           this._snackBar.open(`Error: ${err.message}`, undefined, {

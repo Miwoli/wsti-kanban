@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
   onNewColumn(): void {
     const dialogRef = this.dialog.open(ColumnDialogComponent, {
       width: '250px',
+      disableClose: true
     })
 
     dialogRef.afterClosed().subscribe({

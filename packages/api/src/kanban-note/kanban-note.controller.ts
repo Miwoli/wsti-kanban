@@ -17,7 +17,6 @@ export class KanbanNoteController {
 
   @Post()
   create(@Body() createKanbanNoteDto: CreateKanbanNoteDto) {
-    console.log(createKanbanNoteDto)
     return this.kanbanNoteService.save(createKanbanNoteDto)
   }
 

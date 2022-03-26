@@ -23,7 +23,7 @@
     <app-note
       *ngFor="let note of column.notes"
       [note]="note"
-      (removed)="onNoteRemove()"
+      (removed)="onNoteRemove(note.id)"
     ></app-note>
   </mat-card-content>
 </mat-card>

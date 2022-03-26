@@ -27,6 +27,7 @@ export class NoteComponent {
   onEdit(): void {
     const dialogRef = this.dialog.open(NoteDialogComponent, {
       width: '250px',
+      disableClose: true,
       data: this.note,
     })
 
