@@ -20,8 +20,8 @@ export class NoteService {
     })
   }
 
-  public createNote(note: Note): Observable<void> {
-    return this.http.post<void>(this.apiUrl, note)
+  public createNote(note: Note): Observable<Note> {
+    return this.http.post<Note>(this.apiUrl, note)
   }
 
   public updateNote(note: Note): Observable<void> {

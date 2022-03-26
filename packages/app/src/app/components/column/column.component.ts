@@ -42,7 +42,9 @@ export class ColumnComponent {
     })
 
     dialogRef.afterClosed().subscribe({
-      next: () => this.getNotes(),
+      next: ((note: Note) => {
+        this.column.notes.push(note)
+      }),
       error: (err: HttpErrorResponse) => {
         this._snackBar.open(`Error: ${err.message}`, undefined, {
           duration: 3000,
@@ -100,6 +102,7 @@ export class ColumnComponent {
 
       const updatedNote = event.item.data
       updatedNote.kanbanColumn = columnId
+
       this._noteService.updateNote(updatedNote).subscribe({
         error: (err: HttpErrorResponse) => {
           this._snackBar.open(`Error: ${err.message}`, undefined, {
@@ -111,13 +114,8 @@ export class ColumnComponent {
     }
   }
 
-  onNoteRemove(): void {
-    this.getNotes()
-  }
-
-  private getNotes(): void {
-    this._noteService.getNotes(this.column.id).subscribe((notes) => {
-      this.column.notes = notes
-    })
+  onNoteRemove(id?: number): void {
+    const index = this.column.notes.findIndex(note => note.id === id)
+    this.column.notes.splice(index, 1)
   }
 }
