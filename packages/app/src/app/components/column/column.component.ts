@@ -36,6 +36,7 @@ export class ColumnComponent {
   onNewNote(kanbanColumn?: number): void {
     const dialogRef = this.dialog.open(NoteDialogComponent, {
       width: '250px',
+      disableClose: true,
       data: {
         kanbanColumn,
       },
@@ -57,6 +58,7 @@ export class ColumnComponent {
   onEdit(column: Column) {
     const dialogRef = this.dialog.open(ColumnDialogComponent, {
       width: '250px',
+      disableClose: true,
       data: column,
     })
 
