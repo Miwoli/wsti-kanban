@@ -1,9 +1,17 @@
 import { NestFactory } from '@nestjs/core'
 import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger'
 import { AppModule } from './app.module'
+import { readFileSync } from 'fs'
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule)
+  const httpsOptions = {
+    key: readFileSync('./cert/local.key'),
+    cert: readFileSync('./cert/local.crt'),
+  }
+
+  const app = await NestFactory.create(AppModule, {
+    httpsOptions,
+  })
   app.enableCors()
   const config = new DocumentBuilder()
     .setTitle('WSTI Kanban API')
