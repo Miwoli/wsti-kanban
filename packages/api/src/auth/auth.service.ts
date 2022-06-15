@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common'
+import { HttpException, HttpStatus, Injectable } from '@nestjs/common'
 import { User } from 'src/users/entities/user.entity'
 import { UsersService } from 'src/users/users.service'
 import * as bcrypt from 'bcrypt'
@@ -33,5 +33,13 @@ export class AuthService {
 
   async register(userDto: CreateUserDto): Promise<User> {
     const { login, password } = userDto
+    const userInDb = await this._usersService.findOne(login)
+
+    if (userInDb)
+      throw new HttpException('Login is already used', HttpStatus.BAD_REQUEST)
+
+    const user: User = await this._usersService.save(userDto)
+
+    return user
   }
 }

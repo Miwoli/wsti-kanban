@@ -14,5 +14,5 @@ export class CreateUserDto {
   readonly password: string
 
   @ApiProperty()
-  readonly avatar: string
+  readonly avatar?: string
 }

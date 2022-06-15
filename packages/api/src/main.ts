@@ -5,7 +5,7 @@ import { readFileSync } from 'fs'
 
 async function bootstrap() {
   const httpsOptions = {
-    key: readFileSync('./cert/local.key'),
+    key: readFileSync('./cert/key.pem'),
     cert: readFileSync('./cert/local.crt'),
   }
 
