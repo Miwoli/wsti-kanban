@@ -27,7 +27,9 @@ export class AuthService {
   async login(user: Partial<User>) {
     const payload = { login: user.login, id: user.id }
     return {
-      access_token: this._jwtService.sign(payload),
+      access_token: this._jwtService.sign(payload, {
+        secret: `${process.env.JWT_SECRET}`,
+      }),
     }
   }
 

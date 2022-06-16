@@ -37,7 +37,6 @@ export class NoteDialogComponent {
   }
 
   onSave(): void {
-
     this.data.id ? this.updateNote() : this.newNote()
   }
 

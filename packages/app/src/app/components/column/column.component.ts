@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog'
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { Column } from 'src/app/model/column'
 import { Note } from 'src/app/model/note'
+import { AuthService } from 'src/app/services/auth.service'
 import { ColumnService } from 'src/app/services/column.service'
 import { NoteService } from 'src/app/services/note.service'
 import { ColumnDialogComponent } from '../column-dialog/column-dialog.component'
@@ -28,6 +29,7 @@ export class ColumnComponent {
 
   constructor(
     public dialog: MatDialog,
+    public authService: AuthService,
     private _columnService: ColumnService,
     private _noteService: NoteService,
     private _snackBar: MatSnackBar,

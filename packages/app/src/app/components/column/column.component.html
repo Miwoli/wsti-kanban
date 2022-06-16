@@ -3,7 +3,7 @@
     <mat-card-title>
       {{ column.name }}
     </mat-card-title>
-    <div class="column-actions">
+    <div *ngIf="authService.isLoggedIn$ | async" class="column-actions">
       <button mat-icon-button (click)="onNewNote(column.id)">
         <mat-icon>add</mat-icon>
       </button>

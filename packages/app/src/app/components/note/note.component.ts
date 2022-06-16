@@ -3,6 +3,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core'
 import { MatDialog } from '@angular/material/dialog'
 import { MatSnackBar } from '@angular/material/snack-bar'
 import { Note } from 'src/app/model/note'
+import { AuthService } from 'src/app/services/auth.service'
 import { NoteService } from 'src/app/services/note.service'
 import { NoteDialogComponent } from '../note-dialog/note-dialog.component'
 
@@ -20,6 +21,7 @@ export class NoteComponent {
 
   constructor(
     public dialog: MatDialog,
+    public authService: AuthService,
     private _noteService: NoteService,
     private _snackBar: MatSnackBar,
   ) {}

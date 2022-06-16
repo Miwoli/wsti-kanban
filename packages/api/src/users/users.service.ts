@@ -12,10 +12,11 @@ export class UsersService {
   ) {}
 
   async findOne(login: string): Promise<User | undefined> {
-    return this.userRepository.findOneOrFail(login)
+    return this.userRepository.findOne({ where: { login } })
   }
 
   async save(user: CreateUserDto): Promise<User> {
-    return this.userRepository.save(user)
+    const userInstance = this.userRepository.create(user)
+    return this.userRepository.save(userInstance)
   }
 }
