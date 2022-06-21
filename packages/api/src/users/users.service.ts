@@ -15,6 +15,14 @@ export class UsersService {
     return this.userRepository.findOne({ where: { login } })
   }
 
+  async findOneWithPass(login: string): Promise<User | undefined> {
+    return await this.userRepository
+      .createQueryBuilder('user')
+      .addSelect('user.password')
+      .where('user.login = :login', { login })
+      .getOne()
+  }
+
   async save(user: CreateUserDto): Promise<User> {
     const userInstance = this.userRepository.create(user)
     return this.userRepository.save(userInstance)

@@ -17,7 +17,7 @@ export class User {
   })
   login: string
 
-  @Column()
+  @Column({ select: false })
   password: string
 
   @BeforeInsert()

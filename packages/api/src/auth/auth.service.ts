@@ -13,7 +13,7 @@ export class AuthService {
   ) {}
 
   async validateUser(login: string, password: string): Promise<Partial<User>> {
-    const user = await this._usersService.findOne(login)
+    const user = await this._usersService.findOneWithPass(login)
     const isMatch = await bcrypt.compare(password, user.password)
 
     if (isMatch) {

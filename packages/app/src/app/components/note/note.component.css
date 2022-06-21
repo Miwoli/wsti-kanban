@@ -1,4 +1,17 @@
 mat-card-header {
+  margin-bottom: 10px;
+}
+
+[mat-card-avatar] {
+  background-color: darkgrey;
+  border-radius: 50%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+
+}
+
+[mat-card-avatar] span {
+  font-size: 1.4rem;
+  color: black;
 }

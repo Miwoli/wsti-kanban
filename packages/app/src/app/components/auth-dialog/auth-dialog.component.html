@@ -2,21 +2,21 @@
 <div mat-dialog-content>
   <mat-form-field *ngIf="isRegister" appearance="outline">
     <mat-label>First Name</mat-label>
-    <input matInput [(ngModel)]="firstName" />
+    <input matInput [(ngModel)]="firstName" required />
   </mat-form-field>
   <mat-form-field *ngIf="isRegister" appearance="outline">
     <mat-label>Last Name</mat-label>
-    <input matInput [(ngModel)]="lastName" />
+    <input matInput [(ngModel)]="lastName" required />
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Login</mat-label>
-    <input matInput [(ngModel)]="login" />
+    <input matInput [(ngModel)]="login" required />
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Password</mat-label>
-    <input type="password" matInput [(ngModel)]="password" />
+    <input type="password" matInput [(ngModel)]="password" required />
   </mat-form-field>
-  <a (click)="isRegister = !isRegister">Create an account</a>
+  <a mat-stroked-button (click)="isRegister = !isRegister">{{isRegister ? 'Already a user? Log in' : 'Create an account'}}</a>
 </div>
 <div mat-dialog-actions class="dialog-actions">
   <button mat-button (click)="onCancel()">Cancel</button>

@@ -38,6 +38,7 @@ export class KanbanNote {
   })
   @ManyToOne(() => User, (user) => user.id, {
     onDelete: 'CASCADE',
+    eager: true,
   })
   createdBy: User
 }
