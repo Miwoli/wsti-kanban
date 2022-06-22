@@ -26,6 +26,15 @@ MYSQL_PASSWORD="sit"
 
 1. In `api/src/app.module.ts` type in the proper DB credentials. Should come from env, but for now screw it, as it's a small app created only to pass an uni course.
 
+// TODO: Add note about setting .env file in API root file with
+
+```bash
+DB_USER=user
+DB_PASS=password
+DB_NAME=name
+JWT_SECRET=secret
+```
+
 ### How to run locally
 
 1. From the root folder run `docker compose up -d` to start DB and Adminer

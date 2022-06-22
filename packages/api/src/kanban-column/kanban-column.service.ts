@@ -29,7 +29,7 @@ export class KanbanColumnService {
       .createQueryBuilder()
       .update(KanbanColumn)
       .set({ name: updateKanbanColumnDto.name })
-      .where('id = :id', { id: id })
+      .where('id = :id', { id })
       .execute()
   }
 

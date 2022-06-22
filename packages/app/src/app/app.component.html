@@ -1,10 +1,20 @@
 <mat-toolbar>
   <span>WSTI Kanban App</span>
-  <button mat-icon-button (click)="onNewColumn()">
-    <mat-icon>post_add</mat-icon>
-  </button>
+  <span *ngIf="authService.isLoggedIn$ | async; else login">
+    <button mat-icon-button (click)="onNewColumn()">
+      <mat-icon>post_add</mat-icon>
+    </button>
+    <button mat-icon-button (click)="onLogout()">
+      <mat-icon>logout</mat-icon>
+    </button>
+  </span>
+  <ng-template #login>
+    <button mat-icon-button (click)="onLogin()">
+      <mat-icon>login</mat-icon>
+    </button>
+  </ng-template>
 </mat-toolbar>
-<main cdkDropListGroup>
+<main cdkDropListGroup [cdkDropListGroupDisabled]="isDragDisabled">
   <app-column
     *ngFor="let column of columns"
     [column]="column"

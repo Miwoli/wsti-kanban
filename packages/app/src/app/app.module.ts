@@ -20,7 +20,11 @@ import { NoteDialogComponent } from './components/note-dialog/note-dialog.compon
 import { FormsModule } from '@angular/forms'
 import { ColumnService } from './services/column.service'
 import { NoteService } from './services/note.service'
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
+import { AuthInterceptor } from './services/auth.interceptor'
+import { AuthService } from './services/auth.service'
+import { TokenStorageService } from './services/token-storage.service';
+import { AuthDialogComponent } from './components/auth-dialog/auth-dialog.component'
 
 @NgModule({
   declarations: [
@@ -29,6 +33,7 @@ import { HttpClientModule } from '@angular/common/http'
     NoteComponent,
     ColumnDialogComponent,
     NoteDialogComponent,
+    AuthDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +51,13 @@ import { HttpClientModule } from '@angular/common/http'
     MatRippleModule,
     MatButtonModule,
   ],
-  providers: [ColumnService, NoteService],
+  providers: [
+    ColumnService,
+    NoteService,
+    AuthService,
+    TokenStorageService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
